@@ -24,7 +24,7 @@ const InputForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/api/shortUrl", {
+      const response = await axios.post("https://url-shortner-smoky.vercel.app/api/shortUrl", {
         url: inputValue,
       });
       console.log(response);
