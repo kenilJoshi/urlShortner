@@ -1,13 +1,13 @@
 import mongoose from "mongoose"
 
-const uri: any = process.env.MONGO_URL
+const uri: string | undefined = process.env.MONGO_URL
 
-console.log(uri);
+// console.log(uri);
 
 export async function connectionToDatabase(){
     try{
 
-        await mongoose.connect(uri);
+        await mongoose.connect(uri || "");
           console.log("MongoDB connected");
 
     }catch(e){
