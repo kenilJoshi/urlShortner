@@ -3,9 +3,19 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+interface ShortUrlResponse {
+    message: string,
+    data: {
+        _id: string,
+        originalUrl: string,
+        shortCode: string,
+        _v: number
+    }
+}
+
 const InputForm: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
-  const [responseData, setResponseData] = useState<any>(null);
+  const [responseData, setResponseData] = useState<ShortUrlResponse | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -17,6 +27,8 @@ const InputForm: React.FC = () => {
       const response = await axios.post("http://localhost:3000/api/shortUrl", {
         url: inputValue,
       });
+      console.log(response);
+      
       setResponseData(response.data); // Store the response data
     } catch (error) {
       console.error("Error creating short URL:", error);
