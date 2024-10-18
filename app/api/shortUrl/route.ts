@@ -3,7 +3,7 @@ import {connectionToDatabase} from '@/app/lib/mongodb';
 import ShortUrl from '@/app/models/ShortUrl';
 import { v4 as uuidv4 } from 'uuid';
 
-export async function GET(req: NextRequest) {
+export async function GET() {
 
     const client = await connectionToDatabase()
     console.log(client);
@@ -30,9 +30,9 @@ export async function POST(req: NextRequest) {
 
     let numericID = 1
     for(let i=0;i<uniqueId.length;i++){
-      let ch = uniqueId[i]
+      const ch = uniqueId[i]
 
-      let val = ch.charCodeAt(0)
+      const val = ch.charCodeAt(0)
 
       if(val >= 48 && val <= 57){
         numericID += (val - 48);
@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
     numericID = numericID * salt;
     // console.log("--------->>>",numericID);
     
-    var genHashVal ="";
+    let genHashVal ="";
     let dummyId = numericID;
 
     while(dummyId > 0){

@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import InputForm from "./components/InputBox";
 
 export default function Home() {

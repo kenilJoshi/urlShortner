@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const InputForm: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
-  const [responseData, setResponseData] = useState<any>(null); // State to store the response
+  const [responseData, setResponseData] = useState<any>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
