@@ -7,7 +7,7 @@ export async function GET(req: NextRequest) {
     const id = path.split("/").pop()
 
 
-    const client = await connectionToDatabase()
+    await connectionToDatabase()
     console.log(req);
     const urls = await ShortUrl.findOne({shortCode: id}).exec()
 
