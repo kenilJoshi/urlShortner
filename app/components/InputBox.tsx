@@ -59,7 +59,7 @@ const InputForm: React.FC = () => {
           <h2 className="font-bold">Response:</h2>
           <p>{responseData.message}</p>
           <p><strong>Original URL:</strong> {responseData.data.originalUrl}</p>
-          <p><strong>Short Code:</strong> http://localhost:3000/api/{responseData.data.shortCode}</p>
+          <p><strong>Short Code:</strong> https://url-shortner-smoky.vercel.app/api/{responseData.data.shortCode}</p>
         </div>
       )}
     </div>
